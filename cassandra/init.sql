@@ -1,7 +1,7 @@
-CREATE KEYSPACE bdr 
+CREATE KEYSPACE bda 
 WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 1 };
 
-USE bdr;
+USE bda;
 
 CREATE TABLE all_user_products (
 user_id bigint,
