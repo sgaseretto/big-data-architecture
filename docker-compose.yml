@@ -1,0 +1,50 @@
+# NOTE: la version de docker-compose utilizada es la version 3
+version: '3'
+services:
+  falcon:
+    build: ./falcon   # el contenedor se arma en base al Dockerfile en el directorio ./falcon
+    ports:
+     - "8000:8000"    # se expone el puerto 8000 para realizar el POST y GET de los datos
+    links:
+     - kafka
+     - cassandra
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"   # se expone el puerto 2181 en caso de usar un Kafka externo
+  kafka:
+    image: "wurstmeister/kafka:0.10.2.0"
+    ports:
+     - "9092:9092"
+    hostname: kafka
+    links: 
+     - zookeeper      # Kafka necesita utilizar zookeeper para poder funcionar
+    environment:
+     - KAFKA_ADVERTISED_HOST_NAME=kafka
+     - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+     - KAFKA_ADVERTISED_PORT=9092
+  spark:
+    image: "jupyter/pyspark-notebook"   # La imagen para spark utiliza PySpark
+    command: "start-notebook.sh --NotebookApp.token=''"
+    volumes:
+     - ./spark:/home/jovyan/work
+     - ./data:/home/jovyan/work/data
+    ports:
+     - "8888:8888"    # A traves del puerto 8888 se puede acceder a Jupyter
+     - "4040:4040"
+     - "4041:4041"
+    links:
+     - kafka
+     - cassandra
+  cassandra:
+    image: "cassandra:3"
+    volumes:
+     - ./cassandra:/bda
+     - ./data:/data
+    ports:
+     - "7000:7000"
+     - "7001:7001" 
+     - "7199:7199"
+     - "9042:9042"
+     - "9160:9160"
+
