@@ -1,2 +1,4 @@
 .DS_Store
 .idea
+data/.ipynb_checkpoints
+spark/.ipynb_checkpoints
