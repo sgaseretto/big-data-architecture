@@ -29,6 +29,7 @@ services:
     volumes:
      - ./spark:/home/jovyan/work
      - ./data:/home/jovyan/work/data
+     - /Users/sgaseretto/.ivy2:/home/jovyan/.ivy2
     ports:
      - "8888:8888"    # A traves del puerto 8888 se puede acceder a Jupyter
      - "4040:4040"
