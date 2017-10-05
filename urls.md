@@ -1,0 +1,7 @@
+- https://www.tutorialspoint.com/apache_spark/apache_spark_rdd.htm 
+- https://saurzcode.in/2015/10/what-is-rdd-in-spark-and-why-do-we-need-it/ 
+- https://blog.cloudera.com/blog/2014/08/building-lambda-architecture-with-spark-streaming/ 
+- https://www.datanami.com/2016/06/01/merging-batch-streaming-post-lambda-world/ 
+- Lambda+: Cassandra and Spark for Scalable Architecture https://lostechies.com/ryansvihla/2015/09/17/lambda-cassandra-and-spark-for-scalable-architecture/ 
+- https://es.slideshare.net/DataStax/lambda-architecture-with-cassandra-vaibhav-puranik-gumgum-c-summit-2016
+- Can I use Apache Kafka as for Batch Layer to save historical data in Lambda Architecture? https://stackoverflow.com/questions/43262265/can-i-use-apache-kafka-as-for-batch-layer-to-save-historical-data-in-lambda-arch
